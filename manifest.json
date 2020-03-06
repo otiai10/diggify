@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "name": "Diggify",
+    "version": "1.0.0",
+
+    "description": "Add \"Buy on iTunes/Bandcamp\" button on your Spotify player",
+    "icons": {
+        "16": "assets/icons/diggify_16.png",
+        "32": "assets/icons/diggify_32.png",
+        "48": "assets/icons/diggify_48.png",
+        "128": "assets/icons/diggify_128.png"
+    },
+
+    "background": {
+        "scripts": [
+            "dest/js/background.js"
+        ],
+        "persistent": true
+    },
+
+    "permissions": [
+        "activeTab",
+        "webRequest",
+        "https://open.spotify.com/*",
+        "https://gew-spclient.spotify.com/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "https://open.spotify.com/*"
+            ],
+            "css": [
+                "assets/css/diggify.css"
+            ],
+            "js": [
+                "dest/js/diggify.js"
+            ]
+        }
+    ],
+
+    "web_accessible_resources": [
+        "assets/itunes.png"
+    ]
+}
